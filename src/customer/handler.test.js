@@ -14,7 +14,7 @@ console.log = jest.fn();
 describe('Vendor', () => {
   it('emits order as expect', () => {
     const payload = {
-      store: '1-206-flowers',
+      store: 'foobar',
       orderId: 'test123',
       customer: 'Raphael',
       address: 'home',
