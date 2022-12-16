@@ -18,7 +18,7 @@ const createOrder = (socket) => (payload = null) => {
 };
 
 const thankTheDriver = (socket) => (payload) => {
-  console.log(`Vendor: Thank you for delivering order: ${payload.orderId} to: ${payload.customer}`);
+  console.log(`Walmart: Thank you for delivering order: ${payload.orderId} to: ${payload.customer}`);
   let newPayload = {
     id: payload.vendorId,
     messageId: payload.messageId,

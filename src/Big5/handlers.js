@@ -9,16 +9,16 @@ const createOrder = (socket) => (payload = null) => {
     orderId: chance.guid(),
     customer: chance.name(),
     address: chance.address(),
-    vendorId: 'vendor',
+    vendorId: 'big5',
     messageId: chance.guid(),
     driverId: 'FXP',
   };
-  console.log(`big5: order: ${payload.orderId} ready for pickup`);
+  console.log(`Big5: order: ${payload.orderId} ready for pickup`);
   socket.emit('PICKUP_READY', payload);
 };
 
 const thankTheDriver = (socket) => (payload) => {
-  console.log(`Vendor: Thank you for delivering order: ${payload.orderId} to: ${payload.customer}`);
+  console.log(`Big5: Thank you for delivering order: ${payload.orderId} to: ${payload.customer}`);
   let newPayload = {
     id: payload.vendorId,
     messageId: payload.messageId,
