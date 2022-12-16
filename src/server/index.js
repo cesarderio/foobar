@@ -19,10 +19,10 @@ foobar.on('connection', (socket) => {
     socket.join(id);
     console.log('Joined the room: ', id);
     socket.emit('JOIN', id);
-  });  
+  });
   console.log('Socket connected to foobar namespace', socket.id);
 
-  socket.on('PICKUP', (payload) => {
+  socket.on('PICKUP_READY', (payload) => {
     // console.log('hub: vendor has delivery', payload)
     let currentQueue = messageQueue.read(payload.driverId);
     if(!currentQueue){
@@ -30,7 +30,7 @@ foobar.on('connection', (socket) => {
       currentQueue = messageQueue.read(queueKey);
     }
     currentQueue.store(payload.messageId, payload);
-    socket.broadcast.emit('PICKUP', payload);
+    socket.broadcast.emit('PICKUP_READY', payload);
   });
 
   socket.on('IN-TRANSIT', (payload) => {
@@ -63,7 +63,7 @@ foobar.on('connection', (socket) => {
         if(payload.id !== 'FPX'){
           socket.emit('DELIVERED', currentQueue.read(message));
         } else {
-          socket.emit('PICKUP', currentQueue.read(message));
+          socket.emit('PICKUP_READY', currentQueue.read(message));
         }
       });
     }

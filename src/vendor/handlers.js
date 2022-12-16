@@ -14,7 +14,7 @@ const createOrder = (socket) => (payload = null) => {
     driverId: 'FXP',
   };
   console.log(`Vendor: order: ${payload.orderId} ready for pickup`);
-  socket.emit('PICKUP', payload);
+  socket.emit('PICKUP_READY', payload);
 };
 
 const thankTheDriver = (socket) => (payload) => {
