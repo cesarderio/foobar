@@ -3,8 +3,8 @@
 let socket = require('../../socket-client');
 const { createOrder, thankTheDriver} = require('./handlers');
 
-socket.emit('JOIN', 'big5');
-socket.emit('GET_ALL', {id: 'big5'});
+socket.emit('JOIN', 'zappos');
+socket.emit('GET_ALL', {id: 'zappos'});
 
 const callForPickup = createOrder(socket);
 const handleThanks = thankTheDriver(socket);

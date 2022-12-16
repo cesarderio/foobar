@@ -16,7 +16,7 @@ describe('Driver', () => {
     const payload = {
       store: '1-206-flowers',
       orderId: 'test123',
-      customer: 'Raphael',
+      customer: 'John',
       address: 'home',
     };
     orderInTransit(socket)(payload);
@@ -27,7 +27,7 @@ describe('Driver', () => {
     const payload = {
       store: '1-206-flowers',
       orderId: 'test123',
-      customer: 'Raphael',
+      customer: 'John',
       address: 'home',
     };
     deliveryHandler(socket)(payload);
