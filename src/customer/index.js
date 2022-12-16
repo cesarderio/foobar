@@ -14,7 +14,7 @@ socket.on('DELIVERED', (payload) => handleThanks(payload));
 
 setInterval(() => {
   console.log('-----New Interval!!-----');
-  socket.emit('DELIVERED', thankTheDriver);
+  socket.emit('DELIVERED', thankTheDriver); //----check this line
   // createOrder(socket);
   callForPickup();
 }, 3000);
