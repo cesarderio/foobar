@@ -17,7 +17,7 @@ describe('Vendor', () => {
     const payload = {
       store: 'Vendor',
       orderId: 'test123',
-      customer: 'Raphael',
+      customer: 'John',
       address: 'home',
     };
     createOrder(socket)(payload);
@@ -27,7 +27,7 @@ describe('Vendor', () => {
   it('thanks the driver', () => {
     const payload = {
       orderId: 'test123',
-      customer: 'Raphael'
+      customer: 'John'
     }
     thankTheDriver(socket)(payload);
       `Vendor: Thank you for delivering order: ${payload.orderId} to: ${payload.customer}`

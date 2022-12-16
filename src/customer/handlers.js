@@ -17,9 +17,7 @@ const createOrder = (socket) => (payload = null) => {
 };
 
 function thankTheDriver(payload){
-  // console.log('Vendor: Thank you for delivering to: ', payload.customer);
   console.log(`Vendor: Thank you for delivering order: ${payload.orderId} to: ${payload.customer}`);
 }
-
 
 module.exports = { createOrder, thankTheDriver };

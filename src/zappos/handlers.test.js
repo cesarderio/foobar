@@ -11,16 +11,16 @@ jest.mock('../../socket-client', () => {
 });
 console.log = jest.fn();
 
-describe('Big5', () => {
+describe('Zappos', () => {
   it('emits order as expect', () => {
     const payload = {
-      store: 'big5',
+      store: 'zappos',
       orderId: 'test123',
       customer: 'John',
       address: 'home',
     };
     createOrder(socket)(payload);
-    expect(console.log).toHaveBeenCalledWith('Big5: order: test123 ready for pickup');
+    expect(console.log).toHaveBeenCalledWith('Zappos: order: test123 ready for pickup');
     expect(socket.emit).toHaveBeenCalledWith('PICKUP_READY', payload);
   });
   it('thanks the driver', () => {
@@ -29,7 +29,7 @@ describe('Big5', () => {
       customer: 'John',
     };
     thankTheDriver(socket)(payload);
-    `Big5: Thank you for delivering order: ${payload.orderId} to: ${payload.customer}`;
-    expect(console.log).toHaveBeenCalledWith(`Big5: Thank you for delivering order: ${payload.orderId} to: ${payload.customer}`);
+    `Zappos: Thank you for delivering order: ${payload.orderId} to: ${payload.customer}`;
+    expect(console.log).toHaveBeenCalledWith(`Zappos: Thank you for delivering order: ${payload.orderId} to: ${payload.customer}`);
   });
 });

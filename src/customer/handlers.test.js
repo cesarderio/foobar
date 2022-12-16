@@ -16,7 +16,7 @@ describe('Customer', () => {
     const payload = {
       store: 'foobar',
       orderId: 'test123',
-      customer: 'Raphael',
+      customer: 'John',
       address: 'home',
     };
     createOrder(socket)(payload);
@@ -26,7 +26,7 @@ describe('Customer', () => {
   it('thanks the driver', () => {
     thankTheDriver({
       orderId: 'test123',
-      customer: 'Raphael'});
-    expect(console.log).toHaveBeenCalledWith('Vendor: Thank you for delivering order: test123 to: Raphael');
+      customer: 'John'});
+    expect(console.log).toHaveBeenCalledWith('Vendor: Thank you for delivering order: test123 to: John');
   });
 });
