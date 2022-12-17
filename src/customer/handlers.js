@@ -1,6 +1,7 @@
 'use strict';
 
 const Chance = require('chance');
+const socket = require('../../socket-client');
 const chance = new Chance();
 
 const createOrder = (socket) => (payload = null) => {
@@ -17,7 +18,9 @@ const createOrder = (socket) => (payload = null) => {
 };
 
 function thankTheDriver(payload){
+  socket.emit('CONFIRMATION', payload);
   console.log(`Vendor: Thank you for delivering order: ${payload.orderId} to: ${payload.customer}`);
 }
+
 
 module.exports = { createOrder, thankTheDriver };

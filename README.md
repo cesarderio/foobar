@@ -1,6 +1,7 @@
 # foobar
 
 System that emulates a real world supply chain
+We modeled our project after Uber and Amazon. We wanted to create multiple vendors and queues that could be used
 
 
 ### The following user/developer stories detail the major functionality for this phase of the project
