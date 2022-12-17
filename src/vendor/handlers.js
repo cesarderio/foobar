@@ -4,6 +4,7 @@ const Chance = require('chance');
 const chance = new Chance();
 
 const createOrder = (socket) => (payload = null) => {
+  //console.log(socket);
   payload = payload ? payload : {
     store: 'vendor',
     orderId: chance.guid(),
@@ -19,7 +20,9 @@ const createOrder = (socket) => (payload = null) => {
 
 const thankTheDriver = (socket) => (payload) => {
   // console.log('Vendor: Thank you for delivering to: ', payload.customer);
-  console.log(`Vendor: Thank you for delivering order: ${payload.orderId} to: ${payload.customer}`);
+  let orderId = payload.orderId;
+  let customer = payload.customer
+  console.log(`Vendor: Thank you for delivering order: ${orderId} to: ${customer}`);
   let newPayload = {
     id: payload.vendorId,
     messageId: payload.messageId,
